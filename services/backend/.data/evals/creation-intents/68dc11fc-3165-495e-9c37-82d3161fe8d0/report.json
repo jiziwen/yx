@@ -1,0 +1,60 @@
+{
+  "passed": false,
+  "model": "claude-haiku-5-5",
+  "turns": [
+    {
+      "run_id": "27884425-56ed-432e-9115-7b0059ba428e",
+      "status": "succeeded",
+      "calls": 1,
+      "error_code": null,
+      "usage": {
+        "prompt_tokens": 5381,
+        "completion_tokens": 1331,
+        "total_tokens": 6712
+      },
+      "message": {
+        "id": "5a5832eb-ed07-45fb-b225-12214813f909",
+        "run_id": "27884425-56ed-432e-9115-7b0059ba428e",
+        "seq": 2,
+        "role": "assistant",
+        "text": "已更新草稿：只替换当前选中样片「靠近光的肖像」的人物，站位、朝向、姿势、构图、背景、服装、光线和色调都沿用底图，不再调暖。人物参考、3:4画幅和1张数量保持不变。未生成；该样片为开发样片，若不能生成，应用会提示原因。",
+        "proposal_json": {
+          "intent": "user_request",
+          "mode": "template",
+          "subject_only": true,
+          "shot_ids": [
+            "portrait"
+          ],
+          "style_shot_ids": [],
+          "reference_asset_ids": null,
+          "base_asset_id": null,
+          "style_id": "portrait_portrait_01",
+          "aspect_ratio": "3:4",
+          "count": 1,
+          "variants": 1,
+          "mood": "沿用底图色调与光线",
+          "notes": "只替换人物为已选人物参考，保留底图站位、朝向、姿势、画面占比、构图、背景、服装、光线和色调，不做整体调暖。",
+          "change": "只替换人物，其他不变",
+          "keep": [
+            "场景与构图"
+          ]
+        },
+        "memory_suggestion_json": [],
+        "brief_suggestion_json": null,
+        "observations_json": [],
+        "citations_json": [],
+        "actor_id": null,
+        "created_at": "2026-10-23T11:54:28.921415Z"
+      }
+    },
+    {
+      "run_id": "0df8cc76-bed5-4da2-8342-070fa1f41438",
+      "status": "failed",
+      "calls": 1,
+      "error_code": "AGENT_INVALID_OUTPUT",
+      "usage": null,
+      "message": null
+    }
+  ],
+  "image_calls": 0
+}

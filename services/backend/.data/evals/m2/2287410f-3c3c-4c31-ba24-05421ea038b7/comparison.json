@@ -1,0 +1,16 @@
+{
+  "baseline_report": "/Users/jiwen/Documents/yx/services/backend/.data/evals/m2/a5f70d1a-692c-467d-949c-4df4e66be979/report.json",
+  "candidate_report": "/Users/jiwen/Documents/yx/services/backend/.data/evals/m2/2287410f-3c3c-4c31-ba24-05421ea038b7/report.json",
+  "baseline_release": "5009df75270c37728a9bfbb72bd369412e90eb4fb9b3b33f32540c7064779caf",
+  "candidate_release": "92b99c54070e36f8b5366340387aa26d35116eedfbcfe62b12b7085aae10d059",
+  "case_differences": [
+    {
+      "case_id": "published-citation",
+      "sample": 1,
+      "before": false,
+      "after": true
+    }
+  ],
+  "all_samples_passed": true,
+  "quality_approved": false
+}

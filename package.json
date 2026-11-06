@@ -1,0 +1,38 @@
+{
+  "name": "yingxu",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "pnpm --filter @yingxu/web dev",
+    "dev:admin": "pnpm --filter @yingxu/admin dev",
+    "dev:api": "cd services/backend && uv run uvicorn app.main:create_app --factory --reload --host 127.0.0.1 --port 8100",
+    "typecheck": "pnpm -r typecheck && tsc -p tsconfig.tools.json",
+    "build": "pnpm -r build",
+    "api:generate": "node scripts/generate-api.mjs",
+    "api:check": "node scripts/generate-api.mjs --check",
+    "test": "cd services/backend && uv run pytest",
+    "test:e2e": "playwright test",
+    "test:postgres": "node scripts/test-postgres.mjs",
+    "lint": "node scripts/quality.mjs",
+    "check:m0": "node scripts/check-m0.mjs",
+    "check:m1": "node scripts/check-m0.mjs --m1",
+    "test:client": "vitest run packages/api-client/tests",
+    "eval:prepare": "cd services/backend && uv run python -m evals.prepare",
+    "eval:preflight": "cd services/backend && uv run python -m evals.preflight",
+    "test:redis": "node scripts/test-redis.mjs",
+    "check:m2": "node scripts/check-m0.mjs --m2",
+    "eval:m2": "cd services/backend && uv run python -m evals.m2",
+    "check:m25": "node scripts/check-m0.mjs --m25",
+    "eval:m25": "cd services/backend && uv run python -m evals.m25"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/node": "22.18.12",
+    "openapi-typescript": "7.10.1",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
+  }
+}

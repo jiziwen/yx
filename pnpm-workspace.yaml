@@ -1,0 +1,6 @@
+# 正式工作区及显式依赖构建许可。
+packages:
+  - apps/*
+  - packages/*
+allowBuilds:
+  esbuild: true

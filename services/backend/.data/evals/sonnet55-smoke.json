@@ -1,0 +1,8 @@
+{
+  "model": "claude-sonnet-5-5",
+  "status": "succeeded",
+  "max_output_tokens": 128,
+  "actual_cost": null,
+  "elapsed_seconds": 3.71,
+  "json_contract_passed": true
+}

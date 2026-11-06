@@ -1,0 +1,970 @@
+/* 正式体验的主题桥与业务适配；所有颜色从 manifest token 派生，布局不接触模型供应商。 */
+.atelier-experience {
+  --at-paper: var(--surface);
+  --at-wash: color-mix(in srgb, var(--surface-up) 22%, var(--surface));
+  --at-tint: var(--surface-up);
+  --at-outline: color-mix(in srgb, var(--accent) 22%, var(--surface));
+  --at-soft: color-mix(in srgb, var(--accent) 55%, var(--surface));
+  --at-muted: var(--muted);
+  --at-accent: var(--accent);
+  --at-ink: var(--text);
+  --dp-serif: var(--display-font);
+  --dp-ink: var(--text);
+  --dp-muted: var(--muted);
+  --dp-accent: var(--accent);
+  background:
+    radial-gradient(
+      ellipse at 85% 16%,
+      color-mix(in srgb, var(--scene-secondary) 45%, transparent),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 8% 35%,
+      color-mix(in srgb, var(--surface-up) 80%, transparent),
+      transparent 45%
+    ),
+    var(--bg);
+}
+.atelier-experience.dp-is-studio {
+  background:
+    radial-gradient(
+      ellipse at 95% 25%,
+      color-mix(in srgb, var(--scene-secondary) 45%, transparent),
+      transparent 55%
+    ),
+    var(--bg);
+}
+.atelier-experience em {
+  color: var(--accent);
+}
+.atelier-experience .dp-hero h1 em {
+  background: linear-gradient(
+    105deg,
+    var(--accent),
+    color-mix(in srgb, var(--accent) 80%, var(--scene-secondary))
+  );
+  background-clip: text;
+}
+.atelier-experience .dp-primary,
+.atelier-experience .dp-send {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--button-bg) 90%, var(--accent)),
+    var(--button-bg)
+  );
+  color: var(--accent-ink);
+}
+.atelier-experience .dp-header {
+  max-width: 1600px;
+}
+.atelier-experience .at-nav {
+  margin-left: 0;
+}
+.at-header-end {
+  gap: 13px;
+}
+.at-theme-picker {
+  position: relative;
+}
+.at-theme-trigger {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: 6px 11px;
+  font-size: 10px;
+}
+.at-theme-menu {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 200px;
+  padding: 9px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+.at-theme-menu button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  font-size: 11px;
+  border-radius: 11px;
+  color: var(--muted);
+}
+.at-theme-menu button:hover {
+  background: var(--surface-up);
+}
+.at-theme-menu button > span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.at-theme-menu button > svg {
+  margin-left: auto;
+}
+.at-account {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: var(--accent-text);
+  padding: 8px 11px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.at-menu-toggle {
+  display: none;
+  color: var(--muted);
+}
+.atelier-experience .dp-inspiration {
+  scroll-margin-top: 30px;
+}
+.at-appearance {
+  margin-bottom: 50px;
+  padding: 28px 32px;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+.at-appearance > div:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 10px 0;
+}
+.at-appearance h2 {
+  font-family: var(--display-font);
+  font-size: 22px;
+}
+.at-appearance > p {
+  font-size: 11px;
+  color: var(--muted);
+}
+.at-appearance > div > button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.at-theme-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.at-theme-strip > button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: 8px 13px;
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--surface);
+}
+.at-theme-strip > button[aria-pressed='true'] {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+.at-theme-strip > button > span {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+}
+.at-guide-disclosure {
+  font-size: 10px !important;
+  color: var(--muted) !important;
+  margin-top: 18px;
+  max-width: 280px;
+}
+.at-sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.atelier-experience .page-content {
+  max-width: 1300px;
+  margin: auto;
+  padding: 30px 40px 60px;
+}
+.atelier-experience .button,
+.atelier-experience input,
+.atelier-experience select,
+.atelier-experience textarea {
+  border-radius: 14px;
+}
+.atelier-experience .button {
+  border-radius: 25px;
+}
+.atelier-experience .modal {
+  border-radius: 30px;
+  background: var(--surface);
+  box-shadow: 0 30px 100px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+.atelier-experience .project-card,
+.atelier-experience .work-card,
+.atelier-experience .account-panel {
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.atelier-experience .project-art {
+  border-radius: 24px 24px 0 0;
+}
+.at-guide-mode {
+  color: var(--muted);
+  font-size: 9px;
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-up) 40%, transparent);
+  line-height: 1.9;
+}
+.at-chat-suggestion {
+  margin: 10px 0 16px 24px;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.at-chat-suggestion > p {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+  color: var(--muted);
+}
+.at-chat-suggestion > button {
+  font-size: 10px;
+  color: var(--accent-text);
+  margin-top: 9px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.atelier-experience .dp-chat-options {
+  padding-left: 0;
+}
+.at-brief-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: var(--muted);
+  padding: 12px 4px 0;
+}
+.at-quota-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 10px;
+  padding: 13px 0;
+}
+.at-quota-strip > strong {
+  font-family: var(--display-font);
+  color: var(--accent-text);
+  font-size: 19px;
+  font-weight: 500;
+}
+.at-quota-strip > button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-text);
+  margin-left: auto;
+  font-size: 10px;
+}
+.at-business-panel {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 420px;
+  max-width: 100%;
+  z-index: 5;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px 0 0 24px;
+  box-shadow: -15px 0 50px color-mix(in srgb, var(--accent) 12%, transparent);
+  padding: 22px;
+}
+.at-business-panel .subject-panel {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.at-business-panel .subject-panel > .section-label {
+  display: none;
+}
+.at-business-panel .subject-panel h2 {
+  font-family: var(--display-font);
+  font-size: 25px;
+}
+.at-business-panel .subject-slot {
+  border-radius: 18px;
+  padding: 15px;
+  background: var(--bg);
+}
+.at-business-panel .upload-target {
+  border-radius: 14px;
+}
+.at-business-panel > .dp-round-button {
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+.at-business-panel label {
+  font-size: 11px;
+}
+.at-business-panel .checkbox {
+  align-items: flex-start;
+}
+.at-business-panel .checkbox input {
+  width: auto;
+}
+.at-business-panel .privacy-note {
+  font-size: 10px;
+}
+.at-form-photo {
+  height: 190px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  margin: 15px 0 18px;
+}
+.at-form-photo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.at-form-photo > span {
+  position: absolute;
+  left: 14px;
+  bottom: 13px;
+  font-size: 9px;
+  color: var(--accent-ink);
+  background: color-mix(in srgb, var(--text) 50%, transparent);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+.at-plan-form fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.at-plan-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 14px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.at-plan-form :is(input, textarea, select) {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 12px;
+}
+.at-plan-form textarea {
+  resize: vertical;
+}
+.at-plan-form .form-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.at-plan-form .button {
+  width: 100%;
+  justify-content: center;
+}
+.at-saved-plans {
+  margin-top: 28px;
+}
+.at-saved-plans > h3 {
+  font-family: var(--display-font);
+  font-size: 23px;
+  margin-bottom: 13px;
+}
+.atelier-experience .plan-card {
+  border-radius: 21px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin: 0 0 15px;
+}
+.atelier-experience .plan-card h2 {
+  font-family: var(--display-font);
+  font-size: 23px;
+}
+.atelier-experience .plan-card > p {
+  font-size: 11px;
+}
+.atelier-experience .plan-card .button {
+  margin-top: 14px;
+}
+.atelier-experience .plan-spec {
+  padding: 15px 0;
+  margin: 10px 0;
+}
+.atelier-experience .plan-spec strong {
+  font-size: 14px;
+}
+.at-dirty-note {
+  color: var(--accent-text);
+  font-size: 10px;
+  background: var(--surface-up);
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+.at-history-toggle {
+  color: var(--accent-text);
+  font-size: 11px;
+  padding: 7px 0;
+}
+.atelier-experience .job-row {
+  background: var(--surface);
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  margin-bottom: 9px;
+  padding: 12px;
+}
+.atelier-experience .job-row small {
+  font-size: 10px;
+}
+.atelier-experience .result-empty {
+  padding: 60px 10px;
+  border: 1px dashed var(--border);
+  border-radius: 23px;
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+.atelier-experience .result-empty p {
+  margin-top: 14px;
+}
+.atelier-experience .notice {
+  border-radius: 13px;
+  font-size: 10px;
+  margin: 12px 0;
+  background: var(--surface-up);
+  border-left: 0;
+  padding: 12px 14px;
+}
+.atelier-experience .error-text {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 800px) {
+  .at-header-end {
+    gap: 7px;
+  }
+  .at-theme-trigger > span {
+    display: none;
+  }
+  .at-theme-trigger {
+    padding: 8px;
+  }
+  .at-account > span {
+    display: none;
+  }
+  .at-account {
+    padding: 9px;
+  }
+  .at-appearance {
+    padding: 22px;
+  }
+}
+@media (max-width: 620px) {
+  .atelier-experience .dp-header-end {
+    padding-top: 0;
+    align-self: center;
+  }
+  .atelier-experience .at-nav {
+    display: none;
+  }
+  .at-menu-toggle {
+    display: grid;
+    place-items: center;
+    height: 32px;
+    width: 28px;
+  }
+  .atelier-experience .at-nav.is-open {
+    display: flex;
+    position: absolute;
+    top: 68px;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow);
+  }
+  .atelier-experience .at-nav.is-open > a {
+    display: block;
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+  .atelier-experience .at-nav.is-open > a.active::after {
+    bottom: 1px;
+  }
+  .atelier-experience .page-content {
+    padding: 25px 20px;
+  }
+  .atelier-experience .dp-workspace {
+    height: calc(100svh - 210px);
+  }
+  .at-guide-mode {
+    font-size: 8px;
+    padding: 8px 15px;
+  }
+  .atelier-experience .dp-chat-heading {
+    padding: 14px 17px;
+  }
+  .at-quota-strip {
+    font-size: 9px;
+    gap: 7px;
+  }
+  .at-quota-strip > button {
+    margin-left: 0;
+  }
+  .at-business-panel {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 17px;
+  }
+  .at-appearance h2 {
+    font-size: 20px;
+  }
+  .at-appearance > div:first-of-type {
+    align-items: start;
+  }
+}
+
+/* 摄影师只展示已提交回复和真实阶段，延续工作室的柔光卡片。 */
+.at-agent-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.at-agent-proposal {
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    var(--surface),
+    color-mix(in srgb, var(--surface-up) 75%, var(--surface))
+  );
+}
+.at-agent-proposal > small {
+  color: var(--accent-text);
+  font-size: 11px;
+}
+.at-agent-proposal dl {
+  margin: 12px 0;
+}
+.at-agent-proposal dl > div {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 8px;
+  margin: 8px 0;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.at-agent-proposal dt {
+  opacity: 0.65;
+}
+.at-agent-proposal dd {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.at-agent-proposal button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.at-agent-state,
+.at-agent-error {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-up) 60%, var(--surface));
+  color: var(--accent-text);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.at-agent-error {
+  display: block;
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  color: var(--text);
+}
+.at-agent-error p {
+  margin: 0 0 6px;
+}
+.at-agent-state button,
+.at-agent-error button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  border-radius: 12px;
+  padding: 4px 10px;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.at-agent-state button {
+  margin-left: auto;
+}
+.at-agent-spinner {
+  flex-shrink: 0;
+  animation: at-agent-spin 1.6s linear infinite;
+}
+@keyframes at-agent-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .at-agent-spinner {
+    animation: none;
+  }
+}
+
+/* 长期要求和只读证据沿用主题 token，和正式生成确认保持独立。 */
+.at-project-memory {
+  flex-shrink: 0;
+  margin: 10px 14px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-up) 42%, var(--surface));
+  max-height: 140px;
+  overflow-y: auto;
+  font-size: 10px;
+  line-height: 1.7;
+}
+.at-project-memory > div,
+.at-project-memory > div > span,
+.at-project-memory button,
+.at-memory-suggestion > small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.at-project-memory > div {
+  justify-content: space-between;
+}
+.at-project-memory > div > span,
+.at-memory-suggestion > small {
+  color: var(--accent-text);
+}
+.at-project-memory button {
+  border: 0;
+  background: none;
+  color: var(--accent-text);
+  font: inherit;
+  cursor: pointer;
+}
+.at-project-memory p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+.at-project-memory ul,
+.at-memory-suggestion ul {
+  margin: 8px 0 2px;
+  padding-left: 17px;
+  overflow-wrap: anywhere;
+}
+.at-memory-suggestion {
+  background: color-mix(in srgb, var(--surface-up) 35%, var(--surface));
+  font-size: 11px;
+  line-height: 1.8;
+}
+.at-memory-suggestion button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.at-memory-editor {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+  color: var(--text);
+}
+.at-memory-editor textarea {
+  box-sizing: border-box;
+  width: 100%;
+  resize: vertical;
+  min-height: 160px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.8;
+}
+.at-memory-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  margin-top: 20px;
+}
+.at-memory-actions button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 10px 16px;
+  background: var(--surface-up);
+  color: var(--accent-text);
+  font: inherit;
+  cursor: pointer;
+}
+.at-memory-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.at-tool-observations {
+  margin: 10px 0 14px 24px;
+}
+.at-tool-fact {
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 10px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.at-tool-fact > small {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 9px;
+}
+.at-tool-fact dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+}
+.at-tool-fact dt {
+  color: var(--muted);
+}
+.at-tool-fact dd {
+  margin: 0;
+  font-size: 16px;
+  color: var(--accent-text);
+}
+.at-tool-fact ul {
+  margin: 8px 0;
+  padding: 0;
+  list-style: none;
+}
+.at-tool-fact li {
+  padding: 6px 0;
+}
+.at-tool-fact li strong,
+.at-tool-fact li span {
+  display: block;
+  font-weight: normal;
+}
+.at-tool-fact li span,
+.at-tool-time {
+  color: var(--muted);
+}
+.at-tool-fact p {
+  margin: 6px 0 0;
+}
+.at-memory-dialog {
+  color: var(--text);
+}
+.at-memory-dialog .modal {
+  border-radius: 24px;
+  box-shadow: 0 24px 64px color-mix(in srgb, var(--text) 16%, transparent);
+}
+.at-memory-dialog .modal > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+.at-memory-dialog .at-memory-editor,
+.at-memory-dialog .at-memory-actions {
+  font-size: 12px;
+}
+.at-conversation-connection {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: 9px;
+  color: var(--muted);
+}
+.at-conversation-connection > span {
+  width: 5px;
+  height: 5px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.at-conversation-connection[data-connection='live'] > span {
+  background: var(--accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.at-proposal-changes > p {
+  color: var(--muted);
+  font-size: 9px;
+}
+.at-agent-proposal .at-proposal-change {
+  display: block;
+  padding: 8px 0;
+}
+.at-agent-proposal .at-proposal-change > dd {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 6px 0 0;
+}
+.at-proposal-before,
+.at-proposal-after {
+  min-width: 0;
+  padding: 8px;
+  border-radius: 12px;
+  background: var(--surface);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.at-proposal-before {
+  color: var(--muted);
+}
+.at-proposal-after {
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+}
+.at-proposal-change small {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 8px;
+  font-weight: normal;
+  color: var(--muted);
+}
+.at-proposal-changes summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 9px;
+}
+.at-stream-reply .at-agent-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.at-stream-caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  margin-left: 4px;
+  border-radius: 3px;
+  background: var(--accent-text);
+  opacity: 0.55;
+}
+.at-brief-card {
+  margin: 8px 0;
+  font-size: 10px;
+}
+.at-brief-card summary {
+  cursor: pointer;
+  color: var(--accent-text);
+}
+.at-brief-card dl {
+  max-height: 160px;
+  overflow-y: auto;
+  margin: 8px 0;
+}
+.at-brief-card dl > div,
+.at-brief-suggestion dl > div {
+  display: grid;
+  grid-template-columns: 45px minmax(0, 1fr);
+  gap: 8px;
+  margin: 6px 0;
+}
+.at-brief-card dt,
+.at-brief-suggestion dt {
+  color: var(--muted);
+}
+.at-brief-card dd,
+.at-brief-suggestion dd {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.at-brief-suggestion dd span {
+  display: block;
+  margin-bottom: 4px;
+}
+.at-brief-editor {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.at-brief-editor legend {
+  margin-bottom: 10px;
+  color: var(--accent-text);
+  font-size: 13px;
+}
+.at-brief-editor .at-memory-editor {
+  min-width: 0;
+  margin: 0;
+  gap: 6px;
+}
+.at-brief-editor textarea {
+  min-height: 78px;
+  padding: 10px 12px;
+}
+.at-brief-editor .at-memory-editor:last-child:nth-child(even) {
+  grid-column: 1 / -1;
+}
+@media (max-width: 560px) {
+  .at-brief-editor {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.at-history-more {
+  display: block;
+  margin: 8px auto 18px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--accent-text);
+  font-size: 11px;
+  cursor: pointer;
+}
+.at-history-more:disabled {
+  opacity: 0.5;
+}

@@ -1,0 +1,57 @@
+{
+  "dataset_version": "m2-minimal-v1",
+  "rubric_version": "m2-critical-v1",
+  "scope": "engineering_contracts",
+  "candidate_release": "323cb5230d51e4abd8352e3cdad6439b869b53c9e8673549824e46d032acd385",
+  "baseline_release": null,
+  "cases": [
+    {
+      "case_id": "creative-scene",
+      "passed": true,
+      "actual": "creative",
+      "expected": "creative"
+    },
+    {
+      "case_id": "support-quota",
+      "passed": true,
+      "actual": "support",
+      "expected": "support"
+    },
+    {
+      "case_id": "support-progress",
+      "passed": true,
+      "actual": "support",
+      "expected": "support"
+    },
+    {
+      "case_id": "support-rules",
+      "passed": true,
+      "actual": "support",
+      "expected": "support"
+    },
+    {
+      "case_id": "mixed-plan",
+      "passed": true,
+      "actual": "creative",
+      "expected": "creative"
+    },
+    {
+      "case_id": "support-entry",
+      "passed": true,
+      "actual": "support",
+      "expected": "support"
+    },
+    {
+      "case_id": "critical-contracts",
+      "passed": true,
+      "case_count": 12
+    }
+  ],
+  "critical_failures": [],
+  "quality_approved": false,
+  "reviewed_by": null,
+  "actual_cost_micros": null,
+  "image_calls": 0,
+  "sample_count": 0,
+  "passed": true
+}

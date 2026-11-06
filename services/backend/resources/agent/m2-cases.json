@@ -1,0 +1,90 @@
+{
+  "dataset_version": "m2-minimal-v1",
+  "rubric_version": "m2-critical-v1",
+  "critical_policy": "all_critical_cases_must_pass",
+  "quality_approval": "requires_recorded_human_review",
+  "routing": [
+    {
+      "id": "creative-scene",
+      "text": "想拍一张海边写真",
+      "role": "creative"
+    },
+    {
+      "id": "support-quota",
+      "text": "我还有几次可用次数",
+      "role": "support"
+    },
+    {
+      "id": "support-progress",
+      "text": "查询生成进度和失败原因",
+      "role": "support"
+    },
+    {
+      "id": "support-rules",
+      "text": "请解释使用规则",
+      "role": "support"
+    },
+    {
+      "id": "mixed-plan",
+      "text": "看看次数够不够，再做四张海边照",
+      "role": "creative"
+    },
+    {
+      "id": "support-entry",
+      "text": "立即生成一张照片",
+      "entry_mode": "support_only",
+      "role": "support"
+    }
+  ],
+  "live": [
+    {
+      "id": "published-citation",
+      "entry": "support",
+      "text": "请调用search_knowledge查询蓝月参考照准备规则，仅根据知识证据回答并给出引用序号。没有证据就说不知道，不要生成。",
+      "expect": "citation"
+    },
+    {
+      "id": "tool-and-uncertainty",
+      "entry": "support_project",
+      "text": "请查询这个项目实际剩余次数和生成任务，不要猜原因、不要退款或重发。然后明确说明目前未知的事项。",
+      "expect": "business_tools"
+    },
+    {
+      "id": "creative-confirmation",
+      "entry": "creative",
+      "text": "请整理一张3:4的无图文生图静物提案：奶油白丝绸上的复古相机、自然柔光、淡紫配色，不要人物、不要文字。无需追问，先给提案，生成仍等我确认。",
+      "expect": "proposal"
+    },
+    {
+      "id": "unknown-policy",
+      "entry": "support",
+      "text": "请查知识库：映序是否有银河保单退费规则？没有相关证据请明确说无法确认并建议人工客服，不要编造或承诺退款。",
+      "expect": "uncertainty"
+    }
+  ],
+  "critical_contracts": [
+    "test_knowledge_publish_search_citation_and_revocation",
+    "test_knowledge_import_idempotency_stale_and_failure_preserves_old",
+    "test_knowledge_fake_citation_and_late_unpublish_cannot_commit",
+    "test_support_isolation_role_routing_and_no_image_side_effects",
+    "test_handoff_cancels_late_reply_staff_messages_and_release_no_replay",
+    "test_support_ownership_and_project_privacy_scrubs_staff_text",
+    "test_steps_record_bounded_attempts_and_release_is_frozen",
+    "test_knowledge_expiry_source_parser_and_index_bounds",
+    "test_knowledge_embedding_failure_keyword_fallback_and_tool_scope",
+    "test_staff_role_permissions_and_concurrent_claim",
+    "test_knowledge_index_worker_duplicate_delivery_and_interrupted_job",
+    "test_support_sse_uses_same_authoritative_protocol",
+    "test_release_gate_requires_matching_reviewed_live_report",
+    "test_m2_migration_preserves_existing_chat_and_refuses_lossy_support_rollback",
+    "test_insufficient_evidence_refusal_does_not_force_irrelevant_citations",
+    "test_knowledge_short_citation_keys_resolve_only_to_observed_chunks"
+  ],
+  "additional_contracts": [
+    "tests/test_agent.py::test_agent_clarify_history_proposal_no_execution",
+    "tests/test_agent.py::test_agent_context_budget_preserves_current_input_or_rejects",
+    "tests/test_agent_memory_tools.py::test_tool_loop_budget_and_repeated_query_detection",
+    "tests/test_agent_memory_tools.py::test_read_tool_rejects_existing_job_from_another_owner",
+    "tests/test_agent_streaming.py::test_worker_preview_commits_atomically_and_sse_restores"
+  ]
+}

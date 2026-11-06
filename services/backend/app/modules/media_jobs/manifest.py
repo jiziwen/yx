@@ -1,0 +1,7 @@
+"""media_jobs 的可插拔公开入口；显式声明依赖而非依赖导入副作用。"""
+
+from app.core.plugins import Module
+
+from .api import router
+
+module = Module(id="media_jobs", version="1.0.0", requires=("projects", "commerce", "assets"), router=router)

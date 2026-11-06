@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "version": "m0-provider-readiness-v1",
+  "cases": [
+    {"id":"portrait-front","kind":"portrait","subjects":["person_a"],"fixtures":["person_a/front"],"checks":["identity_a","natural_features","reference_adherence"]},
+    {"id":"portrait-side","kind":"portrait","subjects":["person_a"],"fixtures":["person_a/front","person_a/side"],"checks":["identity_a","pose_change","anatomy"]},
+    {"id":"portrait-negative-constraint","kind":"portrait","subjects":["person_a"],"fixtures":["person_a/front"],"checks":["identity_a","no_veil","style_adherence"]},
+    {"id":"couple-distinct-identities","kind":"wedding","subjects":["person_a","person_b"],"fixtures":["person_a/front","person_b/front"],"checks":["identity_a","identity_b","no_identity_swap","anatomy"]},
+    {"id":"couple-different-light","kind":"wedding","subjects":["person_a","person_b"],"fixtures":["person_a/side","person_b/side"],"checks":["identity_a","identity_b","no_identity_merge","style_adherence"]},
+    {"id":"submit-result-unknown","kind":"contract","subjects":[],"fixtures":[],"checks":["no_blind_resubmit","quota_held","query_or_manual_reconcile"]},
+    {"id":"known-rejection","kind":"contract","subjects":[],"fixtures":[],"checks":["no_output","quota_release_once"]},
+    {"id":"late-output-after-revoke","kind":"contract","subjects":[],"fixtures":[],"checks":["no_delivery","private_file_cleanup","quota_settlement"]}
+  ],
+  "release_thresholds": {"quality_minimum":null,"cost_ceiling":null,"latency_ceiling_seconds":null,"status":"requires_M1_sample_measurement_and_confirmation"}
+}

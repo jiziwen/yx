@@ -1,0 +1,55 @@
+{
+  "dataset_version": "m2-minimal-v1",
+  "rubric_version": "m2-critical-v1",
+  "scope": "live_samples",
+  "candidate_release": "2bbfda66c3f84c3317c8ea1fced4e689a2a73a02974a8d0b45630cd004daf2c5",
+  "baseline_release": null,
+  "cases": [
+    {
+      "case_id": "creative-scene",
+      "passed": true,
+      "actual": "creative",
+      "expected": "creative"
+    },
+    {
+      "case_id": "support-quota",
+      "passed": true,
+      "actual": "support",
+      "expected": "support"
+    },
+    {
+      "case_id": "support-progress",
+      "passed": true,
+      "actual": "support",
+      "expected": "support"
+    },
+    {
+      "case_id": "support-rules",
+      "passed": true,
+      "actual": "support",
+      "expected": "support"
+    },
+    {
+      "case_id": "mixed-plan",
+      "passed": true,
+      "actual": "creative",
+      "expected": "creative"
+    },
+    {
+      "case_id": "support-entry",
+      "passed": true,
+      "actual": "support",
+      "expected": "support"
+    }
+  ],
+  "critical_failures": [
+    "ValueError:真实embedding索引未通过，未继续LLM付费评测"
+  ],
+  "quality_approved": false,
+  "reviewed_by": null,
+  "actual_cost_micros": null,
+  "image_calls": 0,
+  "sample_count": 2,
+  "embedding_index_succeeded": false,
+  "passed": false
+}

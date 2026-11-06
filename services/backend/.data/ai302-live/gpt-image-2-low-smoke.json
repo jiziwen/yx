@@ -1,0 +1,22 @@
+{
+  "model": "gpt-image-2",
+  "quality": "low",
+  "size": "1024x1024",
+  "status": "succeeded",
+  "actual_cost": null,
+  "generation_submissions_limit": 1,
+  "started_at_epoch": 1792652206.607148,
+  "job_id": "bcafc8a0-a7a1-43fe-9b9c-2c2568b16b92",
+  "project_id": "d7998944-6a47-48ae-a452-f051736d4351",
+  "error_code": null,
+  "receipt_recorded": true,
+  "elapsed_seconds": 30.1,
+  "usage": {
+    "input_tokens": 74,
+    "output_tokens": 196,
+    "total_tokens": 270
+  },
+  "actual_cost_micros": null,
+  "upstream_quality": "low",
+  "upstream_size": "1024x1024"
+}

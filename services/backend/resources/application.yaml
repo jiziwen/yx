@@ -1,0 +1,123 @@
+# 可信部署配置；增删模块或适配器后重启，旧业务数据保留。
+schema_version: 1
+modules:
+  - {entrypoint: 'app.modules.identity.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.catalog.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.projects.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.commerce.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.assets.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.executions.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.media_jobs.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.operations.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.conversations.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.agents.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.project_memory.manifest:module', enabled: true}
+  - {entrypoint: 'app.modules.knowledge.manifest:module', enabled: true}
+features:
+  trial_enabled: true
+  chat_enabled: true
+  support_enabled: true
+  gifts_enabled: false
+  payments_enabled: false
+trial:
+  version: internal-v1
+  photo_count: 8
+# 可选：按 text / reference / edit 配置不同图片供应商；缺省沿用 routes.image。
+image_routes: {}
+# 提示词插件与供应商分离；保存方案时冻结实际文本，执行不随部署静默变化。
+creation_prompt:
+  entrypoint: app.modules.executions.prompts:compose
+  version: creation-v5-zh
+  options: {}
+queue_limits: {max_batch: 8, max_user_pending: 16, max_pending: 500}
+# 302 实测可用的1536维MRL空间；更换模型必须重建索引，不混用旧向量。
+knowledge:
+  embedding_entrypoint: app.integrations.embeddings:CompatibleEmbedding
+  embedding_options: {model: Qwen/Qwen3-Embedding-8B, base_url: 'https://api.302.ai/v1', api_key_env: AI302_API_KEY}
+  keyword_fallback: true
+conversation_stream:
+  enabled: true
+  poll_seconds: 2
+  delta_poll_seconds: 0.2
+  heartbeat_seconds: 15
+  max_connection_seconds: 240
+agent:
+  streaming_enabled: true
+  stream_flush_ms: 120
+  entrypoint: app.modules.agents.graph:run_graph
+  max_calls: 3
+  max_tool_calls: 4
+  request_timeout_seconds: 300
+  deadline_seconds: 330
+  max_context_chars: 12000
+  tool_context_reserve: 4000
+  context_window_tokens: 64000
+  history_turns: 6
+  max_user_pending: 4
+  max_pending: 100
+  memory_enabled: true
+  memory_max_items: 12
+  brief_fields:
+    - {key: scene, label: 场景}
+    - {key: lighting, label: 光线}
+    - {key: palette, label: 配色}
+    - {key: keep, label: 保留项}
+    - {key: avoid, label: 禁止项}
+  tools:
+    - {name: get_entitlements, entrypoint: 'app.modules.agents.tools:EntitlementsTool', enabled: true, timeout_ms: 2000, max_output_chars: 5000}
+    - {name: get_job_status, entrypoint: 'app.modules.agents.tools:JobStatusTool', enabled: true, timeout_ms: 2000, max_output_chars: 5000}
+    - {name: search_project_history, entrypoint: 'app.modules.conversations.history:HistorySearchTool', enabled: true, timeout_ms: 2000, max_output_chars: 5000}
+    - {name: search_knowledge, entrypoint: 'app.modules.knowledge.tools:KnowledgeSearchTool', enabled: true, timeout_ms: 5000, max_output_chars: 7000}
+    - {name: get_catalog, entrypoint: 'app.modules.agents.tools:CatalogTool', enabled: true, timeout_ms: 2000, max_output_chars: 5000}
+routes:
+  image: local-image
+  llm: local-llm
+  storage: local-storage
+providers:
+  local-image:
+    kind: image
+    version: '1'
+    entrypoint: app.integrations.local:MockImageProvider
+    development_only: true
+    capabilities: {reference_images: true, operations: [text, reference, edit], max_input_images: 6, max_reference_images: 4, max_style_images: 2, max_subjects: 2, aspect_ratios: ['3:4', '4:3', '1:1', '2:3', '3:2', '16:9', '9:16']}
+  local-llm:
+    kind: llm
+    version: '1'
+    entrypoint: app.integrations.local:MockLLMProvider
+    development_only: true
+    capabilities: {structured_output: true}
+  local-storage:
+    kind: storage
+    version: '1'
+    entrypoint: app.integrations.local:LocalStorage
+    development_only: true
+  compatible-llm:
+    enabled: false
+    kind: llm
+    version: '1'
+    entrypoint: app.integrations.openai_compatible:CompatibleLLM
+    capabilities: {structured_output: true}
+    options: {base_url: 'https://api.example.com/v1', model: 'replace-with-validated-model', api_key_env: LLM_API_KEY, timeout_seconds: 300}
+  compatible-image:
+    enabled: false
+    kind: image
+    version: '1'
+    entrypoint: app.integrations.openai_compatible:CompatibleImage
+    # 接入真实模型后，只声明经过验证的操作和限制。
+    capabilities: {reference_images: true, operations: [reference, edit], max_input_images: 3, max_reference_images: 2, max_style_images: 0, max_subjects: 1, aspect_ratios: ['3:4', '4:3', '1:1', '2:3', '3:2', '16:9', '9:16']}
+    options: {base_url: 'https://api.example.com/v1', model: 'replace-with-validated-model', api_key_env: IMAGE_API_KEY, timeout_seconds: 90, size_by_aspect_ratio: {'3:4': '768x1024', '4:3': '1024x768', '1:1': '1024x1024'}}
+  ai302-image:
+    enabled: false
+    kind: image
+    version: '302-v2-2026-10-22'
+    entrypoint: app.integrations.ai302:AI302Image
+    release_status: candidate
+    # 候选验收参数，不代表身份效果已通过；联调后按实际模型调小或放开。
+    capabilities: {reference_images: true, operations: [text, reference, edit], max_input_images: 3, max_reference_images: 2, max_style_images: 1, max_subjects: 2, aspect_ratios: ['3:4', '4:3', '1:1', '2:3', '3:2', '16:9', '9:16']}
+    runtime: {account_scope: ai302-main, max_in_flight: 2, requests_per_minute: 10, poll_seconds: 5, failure_threshold: 3, cooldown_seconds: 60}
+    options:
+      base_url: https://api.302.ai
+      api_key_env: AI302_API_KEY
+      timeout_seconds: 30
+      models: {text: gemini-3.1-flash-image-preview, reference: gemini-3.1-flash-image-preview, edit: gemini-3.1-flash-image-preview}
+      result_hosts: [file.302.ai, file.302ai.cn]

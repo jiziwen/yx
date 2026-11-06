@@ -1,0 +1,26 @@
+# 只启动开发依赖；本地 API/Worker/前端通过 pnpm dev 运行。
+name: yingxu-dev
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: yingxu
+      POSTGRES_PASSWORD: local-development-only
+      POSTGRES_DB: yingxu
+    ports: ['127.0.0.1:5439:5432']
+    volumes: [yingxu-postgres:/var/lib/postgresql/data]
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U yingxu']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  redis:
+    image: redis:7.4-alpine
+    ports: ['127.0.0.1:6389:6379']
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  yingxu-postgres:

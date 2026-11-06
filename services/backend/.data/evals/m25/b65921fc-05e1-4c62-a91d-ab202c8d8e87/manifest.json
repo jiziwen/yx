@@ -1,0 +1,130 @@
+{
+  "id": "b65921fc-05e1-4c62-a91d-ab202c8d8e87",
+  "created_at": "2026-10-23T05:11:19.728432+00:00",
+  "expires_at": "2026-11-22T05:11:19.728535+00:00",
+  "budget_cny": 100,
+  "quality_approved": false,
+  "readiness": {
+    "adult_consent": false,
+    "two_theme_rights": false,
+    "dedicated_test_key": false,
+    "provider_processing_disclosed": false,
+    "engineering_passed": true
+  },
+  "batches": [],
+  "samples": [
+    {
+      "id": "B01",
+      "person": "P1",
+      "theme": "T1",
+      "output": 1,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B02",
+      "person": "P1",
+      "theme": "T1",
+      "output": 2,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B03",
+      "person": "P1",
+      "theme": "T2",
+      "output": 1,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B04",
+      "person": "P1",
+      "theme": "T2",
+      "output": 2,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B05",
+      "person": "P2",
+      "theme": "T1",
+      "output": 1,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B06",
+      "person": "P2",
+      "theme": "T1",
+      "output": 2,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B07",
+      "person": "P2",
+      "theme": "T2",
+      "output": 1,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B08",
+      "person": "P2",
+      "theme": "T2",
+      "output": 2,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B09",
+      "person": "P3",
+      "theme": "T1",
+      "output": 1,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B10",
+      "person": "P3",
+      "theme": "T1",
+      "output": 2,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B11",
+      "person": "P3",
+      "theme": "T2",
+      "output": 1,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    },
+    {
+      "id": "B12",
+      "person": "P3",
+      "theme": "T2",
+      "output": 2,
+      "status": "pending",
+      "identity_rating": null,
+      "delivery_rating": null
+    }
+  ],
+  "engineering_report": {
+    "path": ".data/m2.5/last-run.json",
+    "finished_at": "2026-10-23T05:16:10.848Z",
+    "scope": "engineering_contracts_only"
+  }
+}

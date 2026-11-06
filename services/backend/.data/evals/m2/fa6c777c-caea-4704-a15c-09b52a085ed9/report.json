@@ -1,0 +1,17 @@
+{
+  "dataset_version": "m2-minimal-v1",
+  "rubric_version": "m2-critical-v1",
+  "scope": "live_samples",
+  "candidate_release": null,
+  "baseline_release": null,
+  "cases": [],
+  "critical_failures": [
+    "NameError:name 'ConversationEntry' is not defined"
+  ],
+  "quality_approved": false,
+  "reviewed_by": null,
+  "actual_cost_micros": null,
+  "image_calls": 0,
+  "sample_count": 2,
+  "passed": false
+}

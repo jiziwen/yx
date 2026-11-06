@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_evaluated",
+  "dataset_version": "m0-provider-readiness-v1",
+  "dataset_sha256": "543c5d7b225f40f9c7cd5b623962aa8a49da1555039598fb474679b9a770e634",
+  "case_count": 8,
+  "required_private_fixtures": [
+    "person_a/front",
+    "person_a/side",
+    "person_b/front",
+    "person_b/side"
+  ],
+  "quality_approved": false,
+  "missing": [
+    "authorized_private_fixture_manifest",
+    "chosen_provider_and_model",
+    "measured_quality_cost_latency",
+    "confirmed_release_thresholds"
+  ]
+}

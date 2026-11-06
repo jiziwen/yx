@@ -1,0 +1,1 @@
+import{j as t,H as e,E as s}from"./index-C29TQEHF.js";function a(){return t.jsxs("div",{className:"page-content",children:[t.jsx(e,{eyebrow:"MORE THAN A PHOTOGRAPH",title:"喜欢之外，再多一点惊喜。",description:"头像、壁纸、海报与照片合集。"}),t.jsx(s,{title:"一份心意，正在准备。",description:"赠品渲染模块尚未接入，当前无法制作。"})]})}export{a as default};

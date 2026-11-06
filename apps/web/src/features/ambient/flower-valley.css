@@ -1,0 +1,57 @@
+/* One isolated viewport scene stays behind navigation, routes, dialogs and form controls. */
+.flower-valley {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+  background: var(--fv-bg, var(--bg));
+}
+.flower-valley-frame,
+.flower-valley-fallback,
+.flower-valley-paper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.flower-valley-frame {
+  display: block;
+  border: 0;
+  pointer-events: none;
+  opacity: 0;
+  filter: hue-rotate(var(--fv-hue, 0deg));
+  transition:
+    opacity 900ms ease,
+    filter 900ms ease;
+}
+.flower-valley[data-ready="true"] .flower-valley-frame {
+  opacity: 1;
+}
+/* A frame of this same original scene also covers loading and WebGL failures. */
+.flower-valley-fallback {
+  background: var(--fv-bg) url("/flower-valley/fallback.jpg") center / cover
+    no-repeat;
+  filter: hue-rotate(var(--fv-hue, 0deg));
+  opacity: 1;
+  transition: opacity 900ms ease;
+}
+.flower-valley[data-ready="true"] .flower-valley-fallback {
+  opacity: 0;
+}
+/* The home page shows the entire flower field. Text shadows and control panels
+   protect copy without reserving an empty dark area in the garden. */
+.flower-valley-paper {
+  background: none;
+}
+/* Work routes keep a uniform ambient shade behind their denser controls. */
+.flower-valley[data-subtle="true"] .flower-valley-paper {
+  background: color-mix(in srgb, var(--fv-bg) 64%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .flower-valley-frame,
+  .flower-valley-fallback {
+    transition: none;
+  }
+}

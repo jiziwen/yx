@@ -1,0 +1,129 @@
+# 写真套系和镜头独立配置；当前既有样片仅用于内测，生产过滤 development_only 镜头。
+version: creative-v2
+aspect_ratios:
+- '3:4'
+- '4:3'
+- '1:1'
+- '2:3'
+- '3:2'
+- '16:9'
+- '9:16'
+max_count: 8
+styles:
+- id: rose_wedding_01
+  version: '1'
+  name: 玫瑰画廊
+  theme_id: rose
+  image: /images/theme-rose.webp
+  kind: wedding
+  mood: 浪漫柔光
+  description: 浪漫柔光 · 选一张心动样片，开始自己的故事。
+  shots:
+  - id: scene
+    name: 故事的开场
+    file: inspiration/theme-rose.webp
+    subject_slots:
+    - left
+    - right
+    development_only: true
+  - id: garden
+    name: 花间的心动
+    file: inspiration/rose-field.webp
+    subject_slots:
+    - left
+    - right
+    development_only: true
+- id: film_wedding_01
+  version: '1'
+  name: 绯红剧场
+  theme_id: film
+  image: /images/theme-cinema.webp
+  kind: wedding
+  mood: 电影叙事
+  description: 电影叙事 · 选一张心动样片，开始自己的故事。
+  shots:
+  - id: scene
+    name: 故事的开场
+    file: inspiration/theme-cinema.webp
+    subject_slots:
+    - left
+    - right
+    development_only: true
+- id: portrait_portrait_01
+  version: '1'
+  name: 雾光艺廊
+  theme_id: portrait
+  image: /images/theme-muse.webp
+  kind: portrait
+  mood: 浪漫柔光
+  description: 浪漫柔光 · 选一张心动样片，开始自己的故事。
+  shots:
+  - id: scene
+    name: 故事的开场
+    file: inspiration/theme-muse.webp
+    subject_slots:
+    - only
+    development_only: true
+    position: 50% 15%
+  - id: portrait
+    name: 靠近光的肖像
+    file: inspiration/editorial-portrait.webp
+    subject_slots:
+    - only
+    development_only: true
+    position: 50% 10%
+- id: fresh_portrait_01
+  version: '1'
+  name: 晴日来信
+  theme_id: fresh
+  image: /images/theme-fresh.webp
+  kind: portrait
+  mood: 自然纪实
+  description: 自然纪实 · 选一张心动样片，开始自己的故事。
+  shots:
+  - id: scene
+    name: 故事的开场
+    file: inspiration/theme-fresh.webp
+    subject_slots:
+    - only
+    development_only: true
+- id: coast_wedding_01
+  version: '1'
+  name: 海岛叙事
+  theme_id: coast
+  image: /images/hero-coast.webp
+  kind: wedding
+  mood: 自然纪实
+  description: 自然纪实 · 选一张心动样片，开始自己的故事。
+  shots:
+  - id: scene
+    name: 故事的开场
+    file: inspiration/hero-coast.webp
+    subject_slots:
+    - left
+    - right
+    development_only: true
+- id: oriental_wedding_01
+  version: '1'
+  name: 东方喜事
+  theme_id: oriental
+  image: /images/oriental-wedding.webp
+  kind: wedding
+  mood: 浪漫柔光
+  description: 浪漫柔光 · 选一张心动样片，开始自己的故事。
+  shots:
+  - id: scene
+    name: 故事的开场
+    file: inspiration/oriental-wedding.webp
+    subject_slots:
+    - left
+    - right
+    development_only: true
+enabled_modes:
+- template
+- portrait
+- edit
+- text
+upload_limits:
+  max_references_per_subject: 5
+  max_project_materials: 20

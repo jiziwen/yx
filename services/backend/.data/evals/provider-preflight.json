@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "blocked_for_measurement",
+  "provider_id": "ai302-image",
+  "adapter_version": "302-v2-2026-10-22",
+  "enabled": false,
+  "release_status": "candidate",
+  "credentials_present": true,
+  "protocol": "asynchronous",
+  "verified_fixture_count": 0,
+  "missing_fixture_keys": [
+    "person_a/front",
+    "person_a/side",
+    "person_b/front",
+    "person_b/side"
+  ],
+  "blockers": [
+    "authorized_fixture_manifest_missing"
+  ],
+  "paid_calls": 0,
+  "quality_approved": false,
+  "actual_cost": null,
+  "release_gates": [
+    "authorized_output_reviews",
+    "measured_billing_and_latency",
+    "confirmed_release_thresholds",
+    "production_storage_and_sms"
+  ]
+}

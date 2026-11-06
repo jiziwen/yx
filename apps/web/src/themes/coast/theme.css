@@ -1,0 +1,4 @@
+/* 海岛叙事扩展样式；业务通用色彩由 manifest tokens 注入。 */
+.studio-theme[data-style='coast'] {
+  color-scheme: light;
+}

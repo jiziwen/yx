@@ -1,0 +1,78 @@
+{
+  "model": "claude-haiku-5-5",
+  "max_output_tokens": 4096,
+  "turns": [
+    {
+      "id": "8a3cadc4-1cb0-435a-824c-e63b51e2c60a",
+      "status": "succeeded",
+      "outcome": "plan_ready",
+      "calls": 1,
+      "tool_calls": 0,
+      "memory_revision": 0,
+      "error_code": null,
+      "usage": {
+        "prompt_tokens": 2493,
+        "completion_tokens": 1610,
+        "total_tokens": 4103
+      },
+      "actual_cost_micros": null
+    }
+  ],
+  "passed": true,
+  "image_calls": 0,
+  "scenario": "native_reply_stream",
+  "observed_previews": [
+    {
+      "run_id": "8a3cadc4-1cb0-435a-824c-e63b51e2c60a",
+      "attempt_no": 1,
+      "seq": 1,
+      "text": "我会陪你梳",
+      "privacy_epoch": 0,
+      "elapsed_seconds": 12.474
+    },
+    {
+      "run_id": "8a3cadc4-1cb0-435a-824c-e63b51e2c60a",
+      "attempt_no": 1,
+      "seq": 2,
+      "text": "我会陪你梳理光线的方向与柔硬、3:4等画幅与构图、薰衣草与金属等配色冷暖，以及相机角度和留白等拍摄要求。遇到模糊处我会先",
+      "privacy_epoch": 0,
+      "elapsed_seconds": 12.62
+    },
+    {
+      "run_id": "8a3cadc4-1cb0-435a-824c-e63b51e2c60a",
+      "attempt_no": 1,
+      "seq": 3,
+      "text": "我会陪你梳理光线的方向与柔硬、3:4等画幅与构图、薰衣草与金属等配色冷暖，以及相机角度和留白等拍摄要求。遇到模糊处我会先追问关键问题，明确后再整理成可确认的草稿。",
+      "privacy_epoch": 0,
+      "elapsed_seconds": 12.776
+    }
+  ],
+  "synthetic_messages": [
+    {
+      "role": "user",
+      "text": "请先用80到120字中文简要介绍你如何陪我整理光线、画幅、配色与拍摄要求，放在reply里；然后整理一张3:4无图文生图静物提案：薰衣草色丝绸上的复古相机、柔和自然光，不要人物和文字。不用追问，不要调用图片。",
+      "proposal": null
+    },
+    {
+      "role": "assistant",
+      "text": "我会陪你梳理光线的方向与柔硬、3:4等画幅与构图、薰衣草与金属等配色冷暖，以及相机角度和留白等拍摄要求。遇到模糊处我会先追问关键问题，明确后再整理成可确认的草稿。",
+      "proposal": {
+        "mode": "text",
+        "style_id": null,
+        "aspect_ratio": "3:4",
+        "count": null,
+        "variants": null,
+        "mood": "柔和自然光",
+        "notes": "薰衣草色丝绸上的复古相机，柔和自然光，静物构图，不要人物和文字。",
+        "change": null,
+        "keep": null
+      }
+    }
+  ],
+  "side_effect_counts": {
+    "plan_versions": 0,
+    "execution_approvals": 0,
+    "jobs": 0
+  },
+  "elapsed_seconds": 13.09
+}

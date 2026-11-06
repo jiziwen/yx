@@ -1,0 +1,4 @@
+/* 玫瑰画廊扩展样式；业务通用色彩由 manifest tokens 注入。 */
+.studio-theme[data-style='rose'] {
+  color-scheme: light;
+}

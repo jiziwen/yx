@@ -1,0 +1,13 @@
+# Git版本管理的M2运行契约；质量审核报告不能由模型自行批准。
+schema_version: 1
+id: m2-agent-v1
+prompt_version: lumi-roles-rag-intent-v2
+graph_version: bounded-readonly-v2
+context_version: project-support-isolation-v1
+retrieval_version: hybrid-rrf-v1
+rubric_version: m2-critical-v1
+dataset_version: m2-minimal-v1
+quality_report: null
+routing:
+  creative_terms: [拍,画面,婚纱照,写真,构图,光线,场景,风格,海边,修改,设计,生成,制作,再来]
+  support_terms: [次数,权益,进度,失败,状态,退款,客服,规则,怎么用,如何使用,参考照要求,上传要求,指南]

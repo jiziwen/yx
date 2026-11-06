@@ -1,0 +1,259 @@
+/* Night garden surfaces share the runtime theme tokens; business components keep their layout. */
+.studio-theme[data-mode="user"] .atelier-experience {
+  --at-soft: color-mix(in srgb, var(--accent) 75%, var(--surface));
+  --at-outline: var(--border);
+  --at-readable: color-mix(in srgb, var(--text) 88%, var(--muted));
+  background: var(--bg);
+  color-scheme: dark;
+}
+.studio-theme[data-mode="user"] .atelier-experience .sx-studio {
+  color-scheme: dark;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-hero-copy h1 {
+  font-weight: 600;
+  text-shadow:
+    0 1px 2px #000,
+    0 3px 12px #000e;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-hero h1 em {
+  background: none;
+  color: var(--accent-bright);
+  -webkit-text-fill-color: var(--accent-bright);
+}
+.studio-theme[data-mode="user"] .atelier-experience :is(h2, h3) {
+  text-shadow:
+    0 2px 12px #000d,
+    0 1px 3px #000;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(
+    .dp-hero-description,
+    .dp-eyebrow,
+    .dp-nav a,
+    .dp-hero-footnote,
+    .dp-downline,
+    .dp-section-heading > p,
+    .cx-collection-title > p,
+    .dp-mood-card > p,
+    .dp-mood-card > small,
+    .dp-footer
+  ) {
+  text-shadow:
+    0 1px 2px #000,
+    0 2px 6px #000;
+}
+
+/* Give reading text real pixels and stable ink against moving highlights. */
+.studio-theme[data-mode="user"] .atelier-experience .dp-nav a {
+  color: var(--at-readable);
+  font-size: 14px;
+  font-weight: 600;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-nav a.active {
+  color: var(--accent-bright);
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(
+    .at-theme-trigger,
+    .at-account,
+    .at-theme-menu button,
+    .at-theme-strip > button
+  ) {
+  color: var(--at-readable);
+  font-size: 13px;
+  font-weight: 500;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-hero-description {
+  color: var(--at-readable);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.9;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-eyebrow {
+  color: var(--at-readable);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-invitation-intro {
+  color: var(--at-readable);
+  font-size: 14px;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  .dp-invitation-intro
+  strong {
+  color: var(--accent-bright);
+  font-size: 15px;
+  font-weight: 600;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-invitation textarea {
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 58px;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-prompt-chips button {
+  color: var(--at-readable);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 11px;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(
+    .dp-hero-footnote,
+    .dp-invitation-bottom > span,
+    .dp-downline,
+    .dp-footer
+  ) {
+  color: var(--at-readable);
+  font-size: 12px;
+  font-weight: 500;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(
+    .cx-collection-title > p,
+    .cx-entry-card p,
+    .dp-mood-card > p,
+    .dp-companion-intro > p,
+    .dp-journey-step p,
+    .at-appearance > p
+  ) {
+  color: var(--at-readable);
+  font-size: 14px;
+  line-height: 1.85;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(
+    .cx-entry-bottom,
+    .dp-mood-card > small,
+    .dp-filter button,
+    .dp-more-moods
+  ) {
+  color: var(--at-readable);
+  font-size: 12px;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(.dp-art-caption, .dp-art-palette span) {
+  color: var(--muted);
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(input, textarea)::placeholder {
+  color: var(--at-readable);
+  opacity: 1;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(input, select, textarea) {
+  caret-color: var(--accent);
+  accent-color: var(--accent);
+}
+
+/* Dark glass protects controls while the flower field remains fully rendered behind them. */
+.studio-theme[data-mode="user"] .atelier-experience .dp-invitation {
+  border-color: var(--border);
+  background: linear-gradient(
+    140deg,
+    color-mix(in srgb, var(--surface) 94%, transparent),
+    color-mix(in srgb, var(--surface-up) 88%, transparent)
+  );
+  box-shadow:
+    0 16px 45px #0006,
+    inset 0 1px color-mix(in srgb, var(--text) 4%, transparent);
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(.dp-floating-note, .dp-about, .at-theme-trigger, .at-account) {
+  background: color-mix(in srgb, var(--surface) 93%, transparent);
+  border-color: var(--border);
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(.dp-prompt-chips button, .dp-filter button, .dp-more-moods) {
+  border-color: var(--border);
+  background: color-mix(in srgb, var(--surface) 84%, transparent);
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(.at-theme-menu, .modal) {
+  color: var(--text);
+  border-color: var(--border);
+  background: var(--surface);
+  box-shadow: 0 22px 80px #000b;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  .at-theme-menu
+  button[aria-pressed="true"] {
+  color: var(--accent);
+  background: var(--surface-up);
+}
+.studio-theme[data-mode="user"] .atelier-experience .modal-backdrop {
+  background: #000a;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(.cx-entry-card, .cx-library-aside, .cx-library-letter, .at-appearance) {
+  border-color: var(--border);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 12px 35px #0005;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-companion {
+  border-color: var(--border);
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--surface-up) 92%, transparent),
+    color-mix(in srgb, var(--surface) 94%, transparent)
+  );
+}
+
+/* Paper becomes a dark photographic mount; image captions must retain light ink. */
+.studio-theme[data-mode="user"] .atelier-experience .dp-hero-portrait {
+  border-color: color-mix(in srgb, var(--surface-up) 82%, var(--accent));
+  box-shadow: 0 25px 70px #0008;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-polaroid {
+  color: var(--text);
+  background: var(--surface-up);
+  border: 1px solid var(--border);
+  box-shadow: 0 15px 40px #0009;
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-polaroid > div {
+  color: var(--text);
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(
+    .dp-photo-label,
+    .dp-mood-number,
+    .dp-mood-image-caption,
+    .cx-shot > div > small
+  ) {
+  color: var(--text);
+  text-shadow: 0 1px 8px #000e;
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  :is(.dp-mood-open, .cx-shot-check) {
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  border: 1px solid var(--border);
+}
+.studio-theme[data-mode="user"]
+  .atelier-experience
+  .cx-shot.is-selected
+  .cx-shot-check {
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+.studio-theme[data-mode="user"] .atelier-experience .dp-skip {
+  color: var(--text);
+  background: var(--surface-up);
+  border: 1px solid var(--border);
+}
